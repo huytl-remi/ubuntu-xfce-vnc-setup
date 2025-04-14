@@ -15,18 +15,20 @@ To install directly from GitHub:
 
 ```bash
 # Method 1: Using curl
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO_NAME/main/ubuntu-setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/huytl-remi/ubuntu-xfce-vnc-setup/main/ubuntu-setup.sh | bash
 
 # Method 2: Clone and run
-git clone https://github.com/USERNAME/REPO_NAME.git
+git clone https://github.com/huytl-remi/ubuntu-xfce-vnc-setup.git
 cd REPO_NAME
 chmod +x ubuntu-setup.sh
 ./ubuntu-setup.sh
 ```
 
-Replace `USERNAME` and `REPO_NAME` with your GitHub username and repository name.
+
 
 ## What Does This Script Do?
+
+The script performs the following actions:
 
 1. Updates and upgrades all system packages
 2. Installs XFCE4 desktop environment and additional goodies
@@ -36,6 +38,7 @@ Replace `USERNAME` and `REPO_NAME` with your GitHub username and repository name
 6. Installs NVM (Node Version Manager)
 7. Installs Node.js 20.15.0 and sets it as default
 8. Installs n8n workflow automation tool globally
+9. Cleans up the system by removing cache, temporary files, and downloaded packages
 
 ## VNC Access
 

@@ -38,7 +38,7 @@ done
 
 # Download the main setup script
 echo "Downloading setup script..."
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO_NAME/main/ubuntu-setup.sh -o ubuntu-setup.sh
+curl -fsSL https://raw.githubusercontent.com/huytl-remi/ubuntu-xfce-vnc-setup/main/ubuntu-setup.sh -o ubuntu-setup.sh
 
 # Make it executable
 chmod +x ubuntu-setup.sh

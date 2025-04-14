@@ -102,9 +102,29 @@ fi
 echo "===== Installing n8n ====="
 npm install n8n -g
 
+# Cleanup step - remove cache, temp files, and downloaded items
+echo "===== Cleaning up system ====="
+# Clean apt cache
+sudo apt clean
+sudo apt autoclean
+sudo apt autoremove -y
+
+# Clean temp files
+rm -rf /tmp/*
+rm -rf /var/tmp/*
+
+# Clean user cache
+rm -rf ~/.cache/thumbnails/*
+rm -rf ~/.npm/_cacache/*
+rm -rf ~/.wget-hsts
+
+# Remove all downloaded packages and archives
+sudo rm -rf /var/cache/apt/archives/*.deb
+
 echo "===== Setup Complete! ====="
 echo "VNC server is running at :1"
 echo "NVM and Node.js 20.15.0 are installed"
 echo "n8n is installed globally"
+echo "System has been cleaned of temporary files and caches"
 echo "To connect to your VNC server, use a VNC client with your server's IP and port 5901"
 echo "To start n8n, run: n8n start"
