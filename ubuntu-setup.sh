@@ -102,6 +102,27 @@ fi
 echo "===== Installing n8n ====="
 npm install n8n -g
 
+# Install ngrok
+echo "===== Installing ngrok ====="
+# Check if ngrok is already installed
+if ! command -v ngrok &> /dev/null; then
+    echo "Downloading and installing ngrok..."
+    # Download the ngrok package
+    wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok.tgz
+    # Extract ngrok
+    sudo tar -xvzf ngrok.tgz -C /usr/local/bin
+    # Remove the archive
+    rm ngrok.tgz
+    # Make ngrok executable
+    sudo chmod +x /usr/local/bin/ngrok
+
+    echo "ngrok installed successfully."
+    echo "NOTE: You will need to authenticate ngrok with your auth token."
+    echo "Run 'ngrok config add-authtoken YOUR_AUTH_TOKEN' after installation."
+else
+    echo "ngrok is already installed."
+fi
+
 # Cleanup step - remove cache, temp files, and downloaded items
 echo "===== Cleaning up system ====="
 # Clean apt cache
@@ -125,6 +146,7 @@ echo "===== Setup Complete! ====="
 echo "VNC server is running at :1"
 echo "NVM and Node.js 20.15.0 are installed"
 echo "n8n is installed globally"
+echo "ngrok is installed - run 'ngrok config add-authtoken YOUR_AUTH_TOKEN' to authenticate"
 echo "System has been cleaned of temporary files and caches"
 echo "To connect to your VNC server, use a VNC client with your server's IP and port 5901"
 echo "To start n8n, run: n8n start"

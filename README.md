@@ -8,6 +8,7 @@ This repository contains a script to automatically set up an Ubuntu server with:
 - NVM (Node Version Manager)
 - Node.js 20.15.0
 - n8n workflow automation tool
+- ngrok for secure tunneling
 
 ## Quick Installation
 
@@ -38,7 +39,8 @@ The script performs the following actions:
 6. Installs NVM (Node Version Manager)
 7. Installs Node.js 20.15.0 and sets it as default
 8. Installs n8n workflow automation tool globally
-9. Cleans up the system by removing cache, temporary files, and downloaded packages
+9. Installs ngrok for creating secure tunnels to localhost
+10. Cleans up the system by removing cache, temporary files, and downloaded packages
 
 ## VNC Access
 
@@ -55,6 +57,8 @@ You'll need a VNC client like RealVNC, TightVNC, or VNC Viewer to connect.
 - **Starting n8n**: Run `n8n start` to launch n8n
 - **Restarting VNC**: If you need to restart the VNC server, run `vncserver`
 - **Stopping VNC**: To stop the VNC server, run `vncserver -kill :1`
+- **Configuring ngrok**: Run `ngrok config add-authtoken YOUR_AUTH_TOKEN` with your ngrok auth token
+- **Using ngrok**: Run `ngrok http 5678` to expose the n8n service (which runs on port 5678 by default)
 
 ## Security Considerations
 
